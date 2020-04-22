@@ -74,13 +74,9 @@ public class Main {
 
             System.out.println("image: " + image); // Should print: image: BufferedImage@<hash>: type = 0 ...
 
-            String pathname = "output/new";
-            StringBuilder temp = new StringBuilder();
-            Arrays.stream(new Random().ints(5, 0, 9).toArray()).forEach(x->{
-                temp.append(x);
-            });
-            pathname += temp.toString();
-            pathname += ".png";
+            String[] splitted = p.toString().split("\\\\");
+            System.out.println("PATHNAME: "+splitted[splitted.length-1]);
+            String pathname = "output/"+splitted[splitted.length-1]+".png";
             ImageIO.write(image, "PNG", new File(pathname));
 
         } catch (IOException e) {
